@@ -8,9 +8,10 @@ app = FastAPI()
 def root():
     return FileResponse("public/index.html")
  
- 
+# метод post для клтиента
 @app.post("/postdata")
 def postdata(username = Form(), userphone=Form()):
+    # Отправляем post запрос на сервис
     requests.post('https://order.drcash.sh/v1/order', 
                   data={'title':{
                                 'Content-Type': 'application/json',
